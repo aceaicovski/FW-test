@@ -1,34 +1,21 @@
 const arr = [1, 0, 10, '0', '1', '', NaN, false, null, undefined, 'false', 'true'];
 
-//1st option
-// console.log(arr.filter(Boolean));
+//1 option:
+function truthy(arr) {
+    var falsyValues;
+    var truthyArr = [];
 
-//2nd option
-/*function bouncer(arr) {
-  return arr.filter(function(v) { return !!v; });
+    for (let i = 0; i < arr.length; i++) {
+        falsyValues =  Boolean(arr[i]);
+        if (falsyValues === true) {
+          truthyArr.push(arr[i]);
+        }
+    }
+    return truthyArr;
 }
 
-console.log(bouncer(arr));*/
+console.log(truthy(arr));
 
-//3rd option 
 
-/*function bouncer(arr) {
-
-    var falsy;
-    var trueArr = [];
-
-    for (i = 0; i < arr.length; i++) {
-
-        falsy =  Boolean(arr[i]);
-
-        if (falsy === true) {
-
-        trueArr.push(arr[i]);
-
-        }
-
-    }
-
-    return trueArr;
-} */
-
+//2 option:
+console.log(arr.filter(Boolean));
